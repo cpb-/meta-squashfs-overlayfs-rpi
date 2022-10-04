@@ -1,0 +1,9 @@
+
+# Boot partition.
+part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 4096 --size 20
+
+# Squashfs root partition.
+part / --source rootfs --ondisk mmcblk0 --fstype=squashfs
+
+# Data partition used for overlayfs.
+part /data --ondisk mmcblk0  --fstype=ext2 --size=256M
